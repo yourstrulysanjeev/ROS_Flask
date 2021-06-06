@@ -30,14 +30,14 @@
     console.log('Connection to websocket server closed.');
     });
 
-    var listener = new ROSLIB.Topic({
+    var chatter = new ROSLIB.Topic({
       ros : ros,
-      name : '/listener',
+      name : '/chatter',
       messageType : 'std_msgs/String'
     });
 
-    listener.subscribe(function(message) {
-      console.log('Received message on ' + listener.name + ': ' + message.data);
+    chatter.subscribe(function(message) {
+      console.log('Received message on ' + chatter.name + ': ' + message.data);
       alert(message.data);
     });
 
